@@ -16,7 +16,10 @@ msg_volume_group_error=""
 ####Fucntions  ()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()
 lv_create(){
 	local var=$1
-	
+	while [ $var == "" ]
+		do
+			printf "%s \n" "$msg_logical_volume_error"
+		done
 	
 	}
 	
