@@ -12,7 +12,7 @@
 msg_missing_disk="physical disk name missing --> "
 msg_provide_disk="please provide name -->"
 msg_unexpected_error="Unexpected Error"
-msg_volume_group_error=""
+msg_volume_group_error="missing volume groupname "
 ####Fucntions  ()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()
 lv_create(){
 	local var=$1
@@ -29,7 +29,7 @@ vg_create(){
 		do
 			printf "%s \n" "$msg_volume_group_error"
 		done
-	
+	vgcreate $var ###NEED global disk name
 	}
 
 pv_create(){
