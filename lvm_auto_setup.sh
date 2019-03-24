@@ -9,12 +9,39 @@
 
 
 ####Vars =====================================================================
-
-
-
+msg_missing_disk="physical disk name missing --> "
+msg_provide_disk="please provide name -->"
+msg_unexpected_error="Unexpected Error"
+msg_volume_group_error=""
 ####Fucntions  ()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()
+lv_create(){
+	local var=$1
+	
+	
+	}
+	
+vg_create(){
+	local var=$1
+	while [ $var == "" ]
+		do
+			printf "%s \n" "$msg_volume_group_error"
+		done
+	
+	}
 
-
+pv_create(){
+	local var=$1
+	while [ $var == "" ]
+		do
+			printf "%s \n"  "$msg_missing_disk"
+			read -p $msg_provide_disk var
+		done
+	if [ -n $var ];then
+			pvcreate $path/$var
+	else
+		printf "%s \n" "$msg_unexpected_error"
+	fi
+	}
 
 ####
 #Main ()
